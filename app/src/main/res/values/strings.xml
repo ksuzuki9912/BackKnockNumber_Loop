@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BackKnockNumber</string>
+    <string name="buttonAtext">認証ボタン</string>
+    <string name="buttonBtext">登録ボタン</string>
+</resources>
