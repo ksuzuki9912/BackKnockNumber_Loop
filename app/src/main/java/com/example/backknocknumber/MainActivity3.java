@@ -392,18 +392,30 @@ public class MainActivity3 extends AppCompatActivity implements SensorEventListe
             paint.setTextSize(100);
             paint.setColor(Color.argb(255, 0, 0, 0));
 
+//            Integer i0 = Integer.valueOf(common.An0);
+//            String str0 = i0.toString();
+//            canvas.drawText("An1=" + str0, x - 0 * dp, y0 - 150 * dp, paint);
+//            Integer i1 = Integer.valueOf(common.An1);
+//            String str1 = i1.toString();
+//            canvas.drawText("An2=" + str1, x - 0 * dp, y1 - 150 * dp, paint);
+//            Integer i2 = Integer.valueOf(common.An2);
+//            String str2 = i2.toString();
+//            canvas.drawText("An3=" + str2, x - 0 * dp, y2 - 150 * dp, paint);
+//            Integer i3 = Integer.valueOf(common.An3);
+//            String str3 = i3.toString();
+//            canvas.drawText("An4=" + str3, x - 0 * dp, y3 - 150 * dp, paint);
             Integer i0 = Integer.valueOf(common.An0);
             String str0 = i0.toString();
-            canvas.drawText("An1=" + str0, x - 0 * dp, y0 - 150 * dp, paint);
+            canvas.drawText("An1=＊", x - 0 * dp, y0 - 150 * dp, paint);
             Integer i1 = Integer.valueOf(common.An1);
             String str1 = i1.toString();
-            canvas.drawText("An2=" + str1, x - 0 * dp, y1 - 150 * dp, paint);
+            canvas.drawText("An2=＊", x - 0 * dp, y1 - 150 * dp, paint);
             Integer i2 = Integer.valueOf(common.An2);
             String str2 = i2.toString();
-            canvas.drawText("An3=" + str2, x - 0 * dp, y2 - 150 * dp, paint);
+            canvas.drawText("An3=＊", x - 0 * dp, y2 - 150 * dp, paint);
             Integer i3 = Integer.valueOf(common.An3);
             String str3 = i3.toString();
-            canvas.drawText("An4=" + str3, x - 0 * dp, y3 - 150 * dp, paint);
+            canvas.drawText("An4=＊", x - 0 * dp, y3 - 150 * dp, paint);
 
             Integer j0 = Integer.valueOf(common.Bn0);
             String str4 = j0.toString();
@@ -589,45 +601,53 @@ public class MainActivity3 extends AppCompatActivity implements SensorEventListe
     public void inputNumber() {
         int xc = 540;
         int num = (common.yv2 - 970) / xc;
-        switch (common.count2) {
-            case 0:
-                if (common.Bf0 == 0) {
-                    common.Bn0 = num;
-                    System.out.println(common.Bn0);
-                    common.Bf0 = 1;
-                } else {
-                    System.out.println("既に入力されています。");
-                }
-                break;
-            case 1:
-                if (common.Bf1 == 0) {
-                    common.Bn1 = num;
-                    System.out.println(common.Bn1);
-                    common.Bf1 = 1;
-                } else {
-                    System.out.println("既に入力されています。");
-                }
-                break;
-            case 2:
-                if (common.Bf2 == 0) {
-                    common.Bn2 = num;
-                    System.out.println(common.Bn2);
-                    common.Bf2 = 1;
-                } else {
-                    System.out.println("既に入力されています。");
-                }
-                break;
-            case 3:
-                if (common.Bf3 == 0) {
-                    common.Bn3 = num;
-                    System.out.println(common.Bn3);
-                    common.Bf3 = 1;
-                } else {
-                    System.out.println("既に入力されています。");
-                }
-                break;
-            default:
-                break;
+        if (num >= 0 && common.yv2 >= 970) {
+            switch (common.count2) {
+                case 0:
+
+                    if (common.Bf0 == 0) {
+                        common.Bn0 = num;
+                        System.out.println(common.Bn0);
+                        common.Bf0 = 1;
+                    } else {
+                        System.out.println("既に入力されています。");
+                    }
+
+                    break;
+                case 1:
+                    if (common.Bf1 == 0) {
+                        common.Bn1 = num;
+                        System.out.println(common.Bn1);
+                        common.Bf1 = 1;
+                    } else {
+                        System.out.println("既に入力されています。");
+                    }
+
+                    break;
+                case 2:
+                    if (common.Bf2 == 0) {
+                        common.Bn2 = num;
+                        System.out.println(common.Bn2);
+                        common.Bf2 = 1;
+                    } else {
+                        System.out.println("既に入力されています。");
+                    }
+
+                    break;
+                case 3:
+                    if (common.Bf3 == 0) {
+                        common.Bn3 = num;
+                        System.out.println(common.Bn3);
+                        common.Bf3 = 1;
+                    } else {
+                        System.out.println("既に入力されています。");
+                    }
+
+                    break;
+                default:
+                    break;
+            }
+
         }
 
     }

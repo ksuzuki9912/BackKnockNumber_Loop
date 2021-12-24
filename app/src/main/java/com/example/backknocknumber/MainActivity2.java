@@ -144,8 +144,11 @@ public class MainActivity2 extends AppCompatActivity implements SensorEventListe
 
     public int mountCountz = 0;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
 
         common = (Common) getApplication();
         common.initA();
@@ -164,11 +167,11 @@ public class MainActivity2 extends AppCompatActivity implements SensorEventListe
         MyView2 myView2 = new MyView2(this);
         setContentView(myView);
 
-        int endPosition = 6870; //画面の最終到達位置
+        int endPosition = 6848; //画面の最終到達位置
         TestAnimation testAnimation = new TestAnimation(myView, endPosition);
         testAnimation.setDuration(10000); //アニメーションの継続時間(ノーツの流れる速さはここで変える)
         //testAnimation.setRepeatMode(TestAnimation.REVERSE);
-        testAnimation.setRepeatCount(3); //アニメーションの繰り返しを行う関数。n回繰り返す場合はn-1にする
+        //testAnimation.setRepeatCount(3); //アニメーションの繰り返しを行う関数。n回繰り返す場合はn-1にする
         myView.startAnimation(testAnimation);
 
 
@@ -220,16 +223,17 @@ public class MainActivity2 extends AppCompatActivity implements SensorEventListe
             // 背景
             canvas.drawColor(Color.argb(255, 255, 255, 255));
 
-
             float x = getWidth();
             float y = getHeight();
             //System.out.println(x);
             //System.out.println(y);
             float xc = x / 2;
+            //System.out.println(xc);
             float yc = y / 2;
             float xc2 = xc / 2;
             float xc3 = xc + xc2;
-            float yc4 = 241;
+            float yc4 = y/8;
+            //System.out.println(yc+yc4);
 
             // 線
             paint.setStrokeWidth(10);
@@ -387,18 +391,30 @@ public class MainActivity2 extends AppCompatActivity implements SensorEventListe
             paint.setTextSize(100);
             paint.setColor(Color.argb(255, 0, 0, 0));
 
+//            Integer i0 = Integer.valueOf(common.An0);
+//            String str0 = i0.toString();
+//            canvas.drawText("Number1=" + str0, x - 0 * dp, y0 - 150 * dp, paint);
+//            Integer i1 = Integer.valueOf(common.An1);
+//            String str1 = i1.toString();
+//            canvas.drawText("Number2=" + str1, x - 0 * dp, y1 - 150 * dp, paint);
+//            Integer i2 = Integer.valueOf(common.An2);
+//            String str2 = i2.toString();
+//            canvas.drawText("Number3=" + str2, x - 0 * dp, y2 - 150 * dp, paint);
+//            Integer i3 = Integer.valueOf(common.An3);
+//            String str3 = i3.toString();
+//            canvas.drawText("Number4=" + str3, x - 0 * dp, y3 - 150 * dp, paint);
             Integer i0 = Integer.valueOf(common.An0);
             String str0 = i0.toString();
-            canvas.drawText("Number1=" + str0, x - 0 * dp, y0 - 150 * dp, paint);
+            canvas.drawText("Number1=＊", x - 0 * dp, y0 - 150 * dp, paint);
             Integer i1 = Integer.valueOf(common.An1);
             String str1 = i1.toString();
-            canvas.drawText("Number2=" + str1, x - 0 * dp, y1 - 150 * dp, paint);
+            canvas.drawText("Number2=＊", x - 0 * dp, y1 - 150 * dp, paint);
             Integer i2 = Integer.valueOf(common.An2);
             String str2 = i2.toString();
-            canvas.drawText("Number3=" + str2, x - 0 * dp, y2 - 150 * dp, paint);
+            canvas.drawText("Number3=＊", x - 0 * dp, y2 - 150 * dp, paint);
             Integer i3 = Integer.valueOf(common.An3);
             String str3 = i3.toString();
-            canvas.drawText("Number4=" + str3, x - 0 * dp, y3 - 150 * dp, paint);
+            canvas.drawText("Number4=＊", x - 0 * dp, y3 - 150 * dp, paint);
         }
 
         public int getPosition2() {
@@ -564,50 +580,59 @@ public class MainActivity2 extends AppCompatActivity implements SensorEventListe
 
     public void inputNumber() {
         int xc = 540;
-        int num = (common.yv1 - 970) / xc;
+        int num = (common.yv1 - 1175) / xc;
+
+        if (num >= 0 && common.yv1 >= 1175) {
+            switch (common.count1) {
+                case 0:
+
+                    if (common.Af0 == 0) {
+                        common.An0 = num;
+                        System.out.println(common.An0);
+                        common.Af0 = 1;
+                    } else {
+                        System.out.println("既に入力されています。");
+                    }
+
+                    break;
+                case 1:
+
+                    if (common.Af1 == 0) {
+                        common.An1 = num;
+                        System.out.println(common.An1);
+                        common.Af1 = 1;
+                    } else {
+                        System.out.println("既に入力されています。");
+                    }
+
+                    break;
+                case 2:
+
+                    if (common.Af2 == 0) {
+                        common.An2 = num;
+                        System.out.println(common.An2);
+                        common.Af2 = 1;
+                    } else {
+                        System.out.println("既に入力されています。");
+                    }
+
+                    break;
+                case 3:
+
+                    if (common.Af3 == 0) {
+                        common.An3 = num;
+                        System.out.println(common.An3);
+                        common.Af3 = 1;
+                    } else {
+                        System.out.println("既に入力されています。");
+                    }
+
+                    break;
+                default:
+                    break;
+            }
 
 
-        switch (common.count1) {
-            case 0:
-                if (common.Af0 == 0) {
-                    common.An0 = num;
-                    System.out.println(common.An0);
-                    common.Af0 = 1;
-                } else {
-                    System.out.println("既に入力されています。");
-                }
-                break;
-            case 1:
-                if (common.Af1 == 0) {
-                    common.An1 = num;
-                    System.out.println(common.An1);
-                    common.Af1 = 1;
-                } else {
-                    System.out.println("既に入力されています。");
-                }
-                break;
-            case 2:
-                if (common.Af2 == 0) {
-                    common.An2 = num;
-                    System.out.println(common.An2);
-                    common.Af2 = 1;
-                } else {
-                    System.out.println("既に入力されています。");
-                }
-                break;
-            case 3:
-                if (common.Af3 == 0) {
-                    common.An3 = num;
-                    System.out.println(common.An3);
-                    common.Af3 = 1;
-                } else {
-                    System.out.println("既に入力されています。");
-                }
-                break;
-            default:
-                break;
         }
-
-
     }
 }
